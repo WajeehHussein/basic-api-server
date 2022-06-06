@@ -14,7 +14,7 @@ console.log('**********************************', Food)
 
 
 async function home(req, res) {
-    res.send('helo')
+    res.send('hello')
 }
 async function addFood(req, res) {
     let newFood = req.body;
@@ -30,20 +30,21 @@ async function getOne(req, res) {
     let food = await Food.findOne({ where: { id: foodId } });
     res.status(200).json(food)
 }
+
+
 async function updateFood(req, res) {
     let foodId = parseInt(req.params.id);
     let updatedFood = req.body;
     let food = await Food.findOne({ where: { id: foodId } });
     if (food) {
-
-        let updated = await Food.update(updated);
+        let updated = await food.update(updatedFood);
         res.status(201).json(updated);
     } else {
         res.status(404);
     }
-    let result = Food.update(updatedFood)
-    res.status(201).json(result)
 }
+
+
 async function deleteFood(req, res) {
     let foodId = parseInt(req.params.id);
     let food = await Food.destroy({ where: { id: foodId } });

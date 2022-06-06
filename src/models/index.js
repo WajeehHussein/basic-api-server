@@ -8,6 +8,7 @@ const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : proces
 const { Sequelize, DataTypes } = require('sequelize');
 
 const food = require('./food');
+const clothes = require('./clothes')
 
 let sequelizeOptions =
     process.env.NODE_ENV === "production"
@@ -28,5 +29,6 @@ let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 module.exports = {
     db: sequelize,
-    Food: food(sequelize, DataTypes)
+    Food: food(sequelize, DataTypes),
+    Clothes: clothes(sequelize, DataTypes)
 };
