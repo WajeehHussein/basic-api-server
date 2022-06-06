@@ -1,16 +1,21 @@
 'use strict';
 const express = require('express');
 
-const { Food } = require('../models/index')
 
 const foodRouter = express.Router();
-
+foodRouter.get('/', home)
 foodRouter.post("/food", addFood)
 foodRouter.get("/food", getFood)
 foodRouter.get('/food/:id', getOne)
 foodRouter.put('/food/:id', updateFood)
 foodRouter.delete('/food/:id', deleteFood)
+const { Food } = require('../models/index')
+console.log('**********************************', Food)
 
+
+async function home(req, res) {
+    res.send('helo')
+}
 async function addFood(req, res) {
     let newFood = req.body;
     let food = await Food.create(newFood)
@@ -31,12 +36,12 @@ async function updateFood(req, res) {
     let food = await Food.findOne({ where: { id: foodId } });
     if (food) {
 
-        let updated = await food.update(updated);
+        let updated = await Food.update(updated);
         res.status(201).json(updated);
     } else {
         res.status(404);
     }
-    let result = food.update(updatedFood)
+    let result = Food.update(updatedFood)
     res.status(201).json(result)
 }
 async function deleteFood(req, res) {

@@ -2,7 +2,7 @@
 
 
 const Food = (sequelize, DataTypes) => {
-    sequelize.define("Food", { // create a table
+    sequelize.define("food", { // create a table
         name: {
             type: DataTypes.STRING,
             allowNull: false,
