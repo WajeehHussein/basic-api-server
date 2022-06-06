@@ -19,7 +19,7 @@ describe('', () => {
         const res = await mockRequest.del('/not');
         expect(res.status).toBe(404);
     })
-    test('add a food', async () => {
+    test('add a data', async () => {
         const res = await mockRequest.post('/food').send(
             {
                 name: "mansaf",
@@ -32,16 +32,16 @@ describe('', () => {
         const res = await mockRequest.get('/food');
         expect(res.status).toBe(200)
     })
-    test('get a food ( one )', async () => {
+    test('get a data ( one )', async () => {
         const res = await mockRequest.get('/food/1');
         expect(res.status).toBe(200)
     })
-    test('update a food ( one )', async () => {
+    test('update a data ( one )', async () => {
         const res = await mockRequest.put('/food/1');
         expect(res.status).toBe(201)
     })
-    test('delete a food ( one )', async () => {
-        const res = await mockRequest.put('/food/1');
+    test('delete a data ( one )', async () => {
+        const res = await mockRequest.delete('/food/1');
         expect(res.status).toBe(204)
     })
 })

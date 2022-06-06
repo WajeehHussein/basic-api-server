@@ -8,9 +8,11 @@ const app = express();
 const notFound = require('./error-handlers/404');
 const serverError = require('./error-handlers/500')
 const foodRotes = require('./routes/food')
+const clothesRouter = require('./routes/clothes')
 
 app.use(express.json());
 app.use(foodRotes)
+app.use(clothesRouter)
 
 app.use('*', notFound);
 app.use(serverError);
