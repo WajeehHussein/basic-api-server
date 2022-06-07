@@ -1,12 +1,16 @@
 'use strict';
 // orgonize my code
 
-require('dotenv').config();
 
+// require database url
+require('dotenv').config();
 const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 
+// require Sequelize
 const { Sequelize, DataTypes } = require('sequelize');
 
+
+// require other models
 const food = require('./food');
 const clothes = require('./clothes')
 
@@ -32,3 +36,8 @@ module.exports = {
     Food: food(sequelize, DataTypes),
     Clothes: clothes(sequelize, DataTypes)
 };
+
+/*
+    index.model.js  is start point of models
+    I need require other models and sequelize and POSTGRES_URI
+*/
