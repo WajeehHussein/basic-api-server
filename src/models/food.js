@@ -14,3 +14,7 @@ const Food = (sequelize, DataTypes) =>
     })
 
 module.exports = Food;
+
+/*
+    in each model I create table use seuelize
+*/
